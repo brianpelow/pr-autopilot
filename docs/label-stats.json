@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-04-13T05:20:00.188161",
+  "date": "2026-04-13",
+  "label_count": 8,
+  "labels": [
+    {
+      "label": "breaking-change",
+      "keyword_count": 3
+    },
+    {
+      "label": "security",
+      "keyword_count": 7
+    },
+    {
+      "label": "infrastructure",
+      "keyword_count": 7
+    },
+    {
+      "label": "dependencies",
+      "keyword_count": 5
+    },
+    {
+      "label": "documentation",
+      "keyword_count": 4
+    },
+    {
+      "label": "testing",
+      "keyword_count": 5
+    },
+    {
+      "label": "database",
+      "keyword_count": 5
+    },
+    {
+      "label": "compliance",
+      "keyword_count": 6
+    }
+  ]
+}
