@@ -40,8 +40,8 @@ def generate_pr_description(diff: DiffSummary, config: AutopilotConfig) -> str:
         return _fallback_description(diff, config)
 
     try:
-        import anthropic
-        client = anthropic.Anthropic(api_key=api_key)
+        from openai import OpenAI
+        client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
 
         compliance_ctx = COMPLIANCE_CONTEXT.get(config.industry, COMPLIANCE_CONTEXT["regulated"])
 
@@ -79,12 +79,12 @@ Generate a PR description with these exact sections:
 
 Be concise, technical, and specific to the actual diff. No generic filler."""
 
-        message = client.messages.create(
-            model="claude-sonnet-4-20250514",
+        message = client.chat.completions.create(
+            model="meta-llama/llama-3.1-8b-instruct:free",
             max_tokens=1024,
             messages=[{"role": "user", "content": prompt}],
         )
-        return message.content[0].text
+        return message.choices[0].message.content
 
     except Exception as e:
         return _fallback_description(diff, config)
